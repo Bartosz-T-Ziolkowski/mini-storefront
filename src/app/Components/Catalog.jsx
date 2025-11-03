@@ -38,7 +38,7 @@ export default function Catalog() {
   }, [products.length]);
 
     const categories = ['All', ...new Set(products.map(p => p.category))];
-    const filteres = products.filter (p => 
+    const filtered = products.filter (p => 
         (category === 'All' || p.category === category) && 
         (maxPrice === '' || p.price <= Number(maxPrice))
     );
@@ -75,7 +75,7 @@ export default function Catalog() {
         <CartSummary
           itemCount={totals.items}
           total={totals.total}
-          onDecrement={decrementFromCart}
+          onDecrease={decreaseFromCart}
           onReset={resetCart}
           cart={cart}
           products={products}
